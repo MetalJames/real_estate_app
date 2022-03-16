@@ -18,14 +18,15 @@ const Search = ({ properties }) => {
         <Box>
             <Flex
                 cursor='pointer'
-                bg='grau.100'
+                bg='gray.100'
                 borderBottom='1px'
                 borderColor='gray.200'
                 p='2'
                 fontWeight='black'
                 fontSize='lg'
                 justifyContent='center'
-                onClick={() => setSearchFilters((prevFilters) => !prevFilters)}
+                onClick={() => setSearchFilters(!searchFilters)}
+                // onClick={() => setSearchFilters((prevFilters) => !prevFilters)}
             >
                 <Text>Search Property by Filter</Text>
                 <Icon paddingLeft='2' w='7' as={BsFilter} />
@@ -50,7 +51,7 @@ const Search = ({ properties }) => {
 export default Search;
 
 export async function getServerSideProps({ query }) {
-    const purpose = query.purpose || 'fer-rent';
+    const purpose = query.purpose || 'for-rent';
     const rentFrequency = query.rentFrequency || 'yearly';
     const minPrice = query.minPrice || '0';
     const maxPrice = query.maxPrice || '1000000';
